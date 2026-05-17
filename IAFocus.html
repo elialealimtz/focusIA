@@ -68,7 +68,7 @@
   .msg-row.user { flex-direction:row-reverse; }
   .avatar { width:32px; height:32px; border-radius:8px; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:15px; }
   .avatar.ai { background:linear-gradient(135deg,var(--accent),var(--accent2)); }
-  .avatar.user { background:var(--surface3); border:1px solid var(--border); }
+  .avatar.user { background:var(--text-dim); border:1px solid var(--border); }
   .msg-content { max-width:70%; display:flex; flex-direction:column; gap:4px; }
   .msg-row.user .msg-content { align-items:flex-end; }
   .msg-meta { font-size:11px; color:var(--text-muted); font-family:'Space Mono',monospace; display:flex; align-items:center; gap:8px; }
@@ -498,7 +498,7 @@ function buildMsgHTML(role, content, idx, isVoice) {
   const ttsBtn = isAI ? `<button class="tts-btn" onclick="speakMsg(${idx})" id="tts-${idx}">▶ escuchar</button>` : '';
   const actions = `<div class="msg-actions"><button class="msg-act-btn" onclick="copyMsg(${idx})">📋 copiar</button>${isAI?`<button class="msg-act-btn" onclick="regenerate(${idx})">↺ regenerar</button>`:''}</div>`;
   return `<div class="msg-row ${isAI?'':'user'}" id="msg-${idx}">
-    <div class="avatar ${isAI?'ai':'user'}">${isAI?'🛡':'🧑'}</div>
+    <div class="avatar ${isAI?'ai':'user'}">${isAI?'🛡':'👤'}</div>
     <div class="msg-content">
       <div class="msg-meta"><span>${isAI?escapeHtml(settings.aiName):'Tú'}</span>${badge}${ttsBtn}</div>
       <div class="msg-bubble ${isAI?'ai':'user'}">${isAI ? formatText(content) : escapeHtml(content)}</div>
